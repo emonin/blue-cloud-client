@@ -1,0 +1,16 @@
+.nav-tabs>.nav-item>.nav-link {
+    color: #0051ff;
+    font-weight: bold;
+    border-radius: 30px;
+    margin-right: 20px;
+    padding: 11px 23px;
+}
+.nav-tabs>.nav-item>.nav-link:hover {
+    border-radius: 30px;
+    border: 1px solid #0051ff;
+}
+.nav-tabs>.nav-item>.nav-link.active {
+    background-color: #0051ff;
+    border-radius: 30px;
+    color: #FFFFFF;
+}

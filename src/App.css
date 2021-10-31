@@ -1,7 +1,15 @@
-.App {
-  text-align: center;
+.main-section
+{
+  background-color: #f7f7f7;
 }
-
+/* .main-section
+{
+  background-color: #F3F3FF;
+} */
+/* .main-section
+{
+  background-color: rgba(235, 235, 235, 0.445);
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;

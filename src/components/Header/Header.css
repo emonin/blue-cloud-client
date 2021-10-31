@@ -1,0 +1,48 @@
+.header-bg
+{
+    background: rgb(0,185,255);
+    background: linear-gradient(90deg, rgba(0,185,255,1) 0%, rgba(0,44,255,1) 100%);
+}
+.text-color
+{
+  color: #0f0094;
+}
+.text-color:hover
+{
+  color: #ffffff;
+}
+.hover-line {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+
+.hover-line:before, .hover-line:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    top: 100%;
+    background: #fff;
+  }
+  
+  .hover-line:before {
+    left: -.5px;
+  }
+  .hover-line:after {
+    right: 2.5px;
+    background: #fff;
+    transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  .hover-line:hover:before {
+    background: #fff;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  
+  .hover-line:hover:after {
+    background: transparent;
+    width: 100%;
+    transition: 0s;
+  }
