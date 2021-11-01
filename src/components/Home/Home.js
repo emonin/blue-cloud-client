@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel, Tabs, Tab, Row, Col, Form, Button } from 'react-bootstrap';
+import Package from '../Package/Package';
 import './Home.css'
 
 const Home = () => {
+
+    const [packages, setPackages] = useState([]);
+    useEffect(() => {
+        fetch('https://bluecloud-server.herokuapp.com/packages')
+            .then(res => res.json())
+            .then(data => setPackages(data))
+    }, [])
+
     return (
         <div>
             {/* 
@@ -332,14 +341,21 @@ const Home = () => {
             Search Section Start 
             --------------------
         */}
-        {/* 
+            {/* 
             --------------------------
             Tour Package Section Start 
             --------------------------
         */}
-            <section id="package" className="container mt-5 shadow rounded p-5 bg-white">
-                <h3 className="fw-bold text-primary">Tour Packages</h3>
-                
+            <h1 className="text-secondary fw-bold container my-5">TOUR PACKAGES</h1>
+            <section className="container mt-5 shadow rounded p-5 bg-white">
+                <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+                    {
+                        packages.map(ourPackage => <Package
+                            key={ourPackage._id}
+                            package={ourPackage}
+                        />)
+                    }
+                </Row>
             </section>
             {/* 
                 ------------------------
@@ -389,7 +405,7 @@ const Home = () => {
                 App Download End 
                 ----------------
             */}
-        </div>
+        </div >
     );
 };
 

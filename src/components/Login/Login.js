@@ -6,7 +6,6 @@ import {
     useHistory
 } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import "./login.css"
 
 const Login = () => {
     const { signInWithGoogle, signInWithEmailPass, setError, error, handleEmail, handlePassword, password, errorCode, setUser, setIsLoading } = useAuth();
