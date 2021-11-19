@@ -15,7 +15,7 @@ const Footer = () => {
                     <Col>
                         <p className="text-light">Important Links</p>
                         <p>
-                            <Link to="/services" className="text-decoration-none text-opacity-50 text-light">Services</Link></p>
+                            <Link to="/" className="text-decoration-none text-opacity-50 text-light">Home</Link></p>
                         <p><Link to="/about" className="text-decoration-none text-opacity-50 text-light">About Us</Link></p>
                         <Link to="/contact" className="text-decoration-none text-opacity-50 text-light">Contact</Link>
                     </Col>

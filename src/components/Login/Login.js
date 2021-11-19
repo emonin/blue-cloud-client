@@ -40,7 +40,6 @@ const Login = () => {
                 history.push(redirect_url)
             })
             .catch(error => {
-                console.log(error.message)
                 setError(error.message);
             })
     };

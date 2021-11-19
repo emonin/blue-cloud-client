@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Header.css';
@@ -23,9 +23,7 @@ const Header = () => {
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="me-auto fw-bold">
-                                    <Nav.Link><Link to="/home" className="hover-line text-color text-decoration-none  me-3">Home</Link></Nav.Link>
-                                    <Nav.Link><Link to="/services" className="hover-line text-color text-decoration-none  me-3">Services</Link></Nav.Link>
-                                    <Nav.Link><Link to="/doctors" className="hover-line text-color text-decoration-none  me-3">Doctors</Link></Nav.Link>
+                                    <Nav.Link><Link to="/home" className="hover-line text-color text-decoration-none me-3">Home</Link></Nav.Link>
                                     <Nav.Link><Link to="/about" className="hover-line text-color text-decoration-none  me-3">About Us</Link></Nav.Link>
                                     <Nav.Link><Link to="/contact" className="hover-line text-color text-decoration-none  me-3">Contact</Link></Nav.Link>
                                 </Nav>
@@ -35,9 +33,20 @@ const Header = () => {
                     <div>
                         {
                             !user.email
-                                ? <div><Link to="/login"><Button className="mx-3 fw-bold" variant="primary">Login</Button></Link>
+                                ? <div><Link to="/login"><Button className="mx-3 fw-bold text-white" variant="info">Login</Button></Link>
                                     <Link to="/register"><Button className="fw-bold" variant="outline-primary text-light">Register</Button></Link></div>
-                                : <span className="text-info"><span className="me-3"><i className="far fa-user"></i> {user.displayName} </span><Button onClick={logOut} className="fw-bold" variant="outline-danger text-light">Logout</Button></span>
+                                : <span className="d-flex align-items-center">
+                                    <Dropdown>
+                                        <Dropdown.Toggle className="fw-bold me-3 text-light" variant="outline-primary" id="dropdown-basic">
+                                            <span><i className="far fa-user"></i> {user.displayName} </span>
+                                        </Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item><Nav.Link><Link to="/my-orders" className="text-decoration-none fw-bold">My Booking</Link></Nav.Link></Dropdown.Item>
+                                            <p className="my-2 border text-center fw-bold">Admin Panel</p>
+                                            <Dropdown.Item><Nav.Link><Link to="/addpackage" className="text-decoration-none fw-bold">Add New Package</Link></Nav.Link></Dropdown.Item>
+                                            <Dropdown.Item><Nav.Link><Link to="/manage-all-booking" className="text-decoration-none fw-bold">Manage All Booking</Link></Nav.Link></Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown><Button onClick={logOut} className="fw-bold" variant="outline-danger text-light">Logout</Button></span>
                         }
                     </div>
                 </Container>

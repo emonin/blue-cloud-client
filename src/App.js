@@ -9,6 +9,11 @@ import NotFound from './components/NotFound/NotFound'
 import Register from './components/Register/Register';
 import AboutUs from './components/AboutUs/AboutUs';
 import Contact from './components/Contact/Contact';
+import OrderPackage from './components/OrderPackage/OrderPackage';
+import AddPackage from './components/AddPackage/AddPackage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import MyOrders from './components/MyOrders/MyOrders';
+import ManageAllBooking from './components/ManageAllBooking/ManageAllBooking';
 
 function App() {
   return (
@@ -23,12 +28,24 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
+            <PrivateRoute path="/package/:id">
+              <OrderPackage />
+            </PrivateRoute>
             <Route path="/contact">
               <Contact></Contact>
             </Route>
             <Route path="/about">
               <AboutUs></AboutUs>
             </Route>
+            <PrivateRoute path="/addpackage">
+              <AddPackage />
+            </PrivateRoute>
+            <PrivateRoute path="/my-orders">
+              <MyOrders />
+            </PrivateRoute>
+            <PrivateRoute path="/manage-all-booking">
+              <ManageAllBooking />
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
